@@ -6,7 +6,7 @@
     <a href="/">Home</a>
     <a href="/breeds">Find a breed</a>
     {{#if currentUser}}
-    <a href="/favorites">Favorite Breeds</a>
+      <a href="/favorites">Favorite Breeds</a>
     {{/if}}
   </nav>
   <nav>
@@ -21,16 +21,24 @@
     {{/unless}}
   </nav>
 </header>
-<div><h2>{{breed.name}}</h2></div>
-<div><img src={{image}} /></div>
-<div>
-  <p>Name: {{breed.name}}</p>
-  <p>Life Span: {{breed.life_span}}</p>
-  <p>Weight: {{breed.weight.metric}} Kg</p>
-  <p>Height: {{breed.height.metric}} Cm</p>
-  <p>Bred For: {{breed.bred_for}}</p>
-  <p>Temperament: {{breed.temperament}}</p>
-  {{#if currentUser}}
-  <button>Favorite</button>
-{{/if}}
+<div class="quatrinary-background-div">
+  <div class="quatrinary-box">
+    <div>
+      <h2>{{breed.name}}</h2>
+    </div>
+    <div>
+      <img src={{image}} />
+    </div>
+    <div>
+      <p>Name: {{breed.name}}</p>
+      <p>Life Span: {{breed.life_span}}</p>
+      <p>Weight: {{breed.weight.metric}} Kg</p>
+      <p>Height: {{breed.height.metric}} Cm</p>
+      <p>Bred For: {{breed.bred_for}}</p>
+      <p>Temperament: {{breed.temperament}}</p>
+      {{#if currentUser}}
+        <button>Favorite</button>
+      {{/if}}
+    </div>
+  </div>
 </div>
