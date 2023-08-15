@@ -22,10 +22,14 @@
   </nav>
 </header>
 
-<div>
-  <p>Find information and pictures about dog breeds</p>
-  <p>Login or Signup to manage Favorite Breeds</p>
-  {{#if currentUser}}
-    <p>Welcome {{currentUser.username}}</p>
-  {{/if}}
+<div class="main-background-div">
+  <div class="main-box">
+    <p>Find information and pictures about dog breeds</p>
+    {{#unless currentUser}}
+    <p><a href="/login">Login</a> or <a href="/signup">Signup</a> to manage Favorite Breeds</p>
+    {{/unless}}
+    {{#if currentUser}}
+      <p>Welcome {{currentUser.username}}</p>
+    {{/if}}
+  </div>
 </div>

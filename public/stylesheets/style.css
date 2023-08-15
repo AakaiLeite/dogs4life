@@ -59,3 +59,58 @@ footer {
 footer p {
   margin-left: 20px;
 }
+
+.main-background-div {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/dog-background.jpg');
+  background-repeat: none ;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 12rem;
+  width: 42rem;
+  color:black;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.main-box a {
+  color: black;
+}
+
+.login-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 14rem;
+  width: 32rem;
+  color:black;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.signup-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 14rem;
+  width: 32rem;
+  color:black;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
