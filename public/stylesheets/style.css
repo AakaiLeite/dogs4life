@@ -106,12 +106,33 @@ footer p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 14rem;
+  height: 16rem;
   width: 32rem;
   color:black;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
+}
+
+.secondary-box a {
+  margin: 10px;
+  color: white;
+  background-color: #2081c3;
+  border-style: none;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.secondary-box button {
+  margin: 10px;
+  color: white;
+  background-color: #2081c3;
+  border-style: none;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .terciary-background-div {
