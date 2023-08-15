@@ -15,15 +15,15 @@
       </div>
       <nav>
         <a href="/">Home</a>
-        <a href="#">Find a breed</a>
+        <a href="/breeds">Find a breed</a>
       </nav>
       <nav>
-        {{#if !currentUser}}
-        <a href="/login">Login</a>
-        <a href="/signup">Signup</a>
+        {{#if currentUser}}
+          <a href="/profile">{{currentUser}}</a>
+          <a href="/logout">Logout</a>
         {{else}}
-        <a href="/profile">{{currentUser}}</a>
-        <a href="/logout">Logout</a>
+          <a href="/login">Login</a>
+          <a href="/signup">Signup</a>
         {{/if}}
       </nav>
     </header>
