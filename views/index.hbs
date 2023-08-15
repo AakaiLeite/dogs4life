@@ -1,9 +1,11 @@
 <div>
   {{#if currentUser}}
-    <a href="/profile">{{currentUser}}</a>
+    <a href="/profile">{{currentUser.username}}</a>
     <a href="/logout">Logout</a>
-  {{else}}
-  <a href="/login">Login</a>
-  <a href="/signup">Signup</a>
   {{/if}}
+
+  {{#unless currentUser}}
+    <a href="/login">Login</a>
+    <a href="/signup">Signup</a>
+  {{/unless}}
 </div>
