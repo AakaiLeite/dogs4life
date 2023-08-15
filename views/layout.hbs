@@ -18,9 +18,13 @@
         <a href="#">Find a breed</a>
       </nav>
       <nav>
-        {{#if !currentuser}}
+        {{#if !currentUser}}
         <a href="/login">Login</a>
         <a href="/signup">Signup</a>
+        {{else}}
+        <a href="/profile">{{currentUser}}</a>
+        <a href="/logout">Logout</a>
+        {{/if}}
       </nav>
     </header>
 
