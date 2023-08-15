@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page - TEST */
+/* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  const currentUser = req.session.currentUser
+  res.render("index", currentUser);
 });
 
 module.exports = router;

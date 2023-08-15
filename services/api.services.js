@@ -1,19 +1,20 @@
-const axios = require('axios');
+const axios = require("axios");
 
 class DogApi {
-    constructor(){
-        this.api = axios.create({
-          baseURL: 'https://api.api-ninjas.com/v1/dogs',
-          headers: {
-            'X-Api-Key': 's1L7D6pulueRcrXL+L8NUQ==s55uGnGkcVHhwajh'
-          },
-        });
-    }
+  constructor() {
+    this.api = axios.create({
+      baseURL: "https://api.thedogapi.com/v1/",
+      headers: {
+        "X-Api-Key":
+          "live_Ee8fEG8GRRsQy8j15Zfs2dLTdmjjcCBoJYiCBAUBD1D9tIEIM1QxGsZuAkMWRMtH",
+      },
+    });
+  }
 
-    // API Actions
-    getByName = (name) =>{
-        return this.api.get('?name=' + name);    
-    }
+  // API Actions
+  getBreedImage = (breedId) => {
+    return this.api.get("images/search?breed_ids=" + breedId);
+  };
 }
 
 module.exports = DogApi;
