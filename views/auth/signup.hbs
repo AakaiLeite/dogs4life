@@ -1,3 +1,20 @@
+<header>
+  <div>
+    <p>Dogs 4 Life</p>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/breeds">Find a breed</a>
+    {{#if currentUser}}
+    <a href="/favorites">Favorite Breeds</a>
+    {{/if}}
+  </nav>
+  <nav>
+    {{#unless currentUser}}
+      <a href="/login">Login</a>
+    {{/unless}}
+  </nav>
+</header>
 <div id="form">
   <h2>Sign Up</h2>
   <form action="/signup" method="POST">

@@ -1,3 +1,26 @@
+<header>
+  <div>
+    <p>Dogs 4 Life</p>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/breeds">Find a breed</a>
+    {{#if currentUser}}
+    <a href="/favorites">Favorite Breeds</a>
+    {{/if}}
+  </nav>
+  <nav>
+    {{#if currentUser}}
+      <a href="/profile">{{currentUser.username}}</a>
+      <a href="/logout">Logout</a>
+    {{/if}}
+
+    {{#unless currentUser}}
+      <a href="/login">Login</a>
+      <a href="/signup">Signup</a>
+    {{/unless}}
+  </nav>
+</header>
 <h2>User Profile</h2>
 {{currentUser.username}}
 <button>

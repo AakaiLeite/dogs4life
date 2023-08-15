@@ -11,11 +11,12 @@ const User = require("../models/User.model");
 // GET Routes
 router.get("/profile", isLoggedIn, (req, res) => {
   const currentUser = req.session.currentUser;
-  res.render("user/profile", {currentUser});
+  res.render("user/profile", { currentUser });
 });
 
 router.get("/favorites", (req, res) => {
-  res.render("user/favorites");
+  const currentUser = req.session.currentUser;
+  res.render("user/favorites", { currentUser });
 });
 
 module.exports = router;

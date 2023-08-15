@@ -1,3 +1,26 @@
+<header>
+  <div>
+    <p>Dogs 4 Life</p>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/breeds">Find a breed</a>
+    {{#if currentUser}}
+    <a href="/favorites">Favorite Breeds</a>
+    {{/if}}
+  </nav>
+  <nav>
+    {{#if currentUser}}
+      <a href="/profile">{{currentUser.username}}</a>
+      <a href="/logout">Logout</a>
+    {{/if}}
+
+    {{#unless currentUser}}
+      <a href="/login">Login</a>
+      <a href="/signup">Signup</a>
+    {{/unless}}
+  </nav>
+</header>
 <div><h2>{{breed.name}}</h2></div>
 <div><img src={{image}} /></div>
 <div>
@@ -7,4 +30,7 @@
   <p>Height: {{breed.height.metric}} Cm</p>
   <p>Bred For: {{breed.bred_for}}</p>
   <p>Temperament: {{breed.temperament}}</p>
+  {{#if currentUser}}
+  <button>Favorite</button>
+{{/if}}
 </div>
