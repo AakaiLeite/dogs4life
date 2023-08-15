@@ -12,35 +12,23 @@ const Dog = require("../models/Breed.model");
 const User = require("../models/User.model");
 
 // Routes
-router.get("/search", async (req, res) => {
+router.get("/breeds", async (req, res) => {
   try {
     const allBreeds = await Dog.find();
-    console.log(allBreeds);
-    res.render("breed-search", { allBreeds });
+    res.render("breed-find", { allBreeds });
   } catch (error) {
     console.log(error);
-  }
-});
-
-router.get("/breed-search-results", async (req, res) => {
-  try {
-    const { breed } = req.query;
-    const searchedBreed = await Dog.find({}, { name: breed });
-    console.log(searchedBreed);
-    res.render("breed-search-results");
-  } catch (error) {
-    console.log("Error Getting Breeds: ", error);
   }
 });
 
 router.get("/breed/:breedId", async (req, res) => {
   try {
     const { breedId } = req.params;
-    const breedDetails = await Dog.findById(breedId);
-    console.log(breedDetails);
-    res.render("breed-details", breedDetails);
+    const breed = await Dog.findById(breedId);
+    console.log(breed);
+    res.render("breed-details", breed);
   } catch (error) {
-    console.log("Error Detail Breed: ", error);
+    console.log("Error Breed Details: ", error);
   }
 });
 
