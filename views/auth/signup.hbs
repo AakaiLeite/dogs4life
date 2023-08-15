@@ -18,31 +18,32 @@
 <div class="main-background-div">
   <div class="secondary-box">
     <h2>Sign Up</h2>
-    <div>
-    <form action="/signup" method="POST">
-      <label>
-        Username
+    <form class="auth-main-div" id="signup-form" action="/signup" method="POST">
+      <div class="auth-secondary-div">
+        <label>
+          Username
+        </label>
+        <br>
+        <label>
+          Email
+        </label>
+        <br>
+        <label>
+          Password
+        </label>
+      </div>
+      <div class="auth-secondary-div">
         <input type="text" name="username" placeholder="Your username" />
-      </label>
-    </div>
-    <div>
-      <label>
-        Email
+        <br>
         <input type="email" name="email" placeholder="Your email" />
-      </label>
-    </div>
-    <br>
-    <div>
-      <label>
-        Password
+        <br>
         <input type="password" name="password" placeholder="Your password" />
-      </label>
-    </div>
-    <br>
-      <button type="submit">Sign Up</button>
-      {{#if errorMessage}}
-        <p class="error">{{errorMessage}}</p>
-      {{/if}}
+      </div>
+      <br />
     </form>
+  <button type="submit" form="signup-form" >Sign Up</button>
+  {{#if errorMessage}}
+    <p class="error">{{errorMessage}}</p>
+  {{/if}}
   </div>
 </div>

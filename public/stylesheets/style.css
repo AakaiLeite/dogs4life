@@ -161,3 +161,25 @@ footer p {
   border-radius: 10px;
   margin: 10px;
 }
+
+.auth-main-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-secondary-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-secondary-div label {
+  margin-right: 5px;
+}
+
+.auth-secondary-div input {
+  margin-right: 5px;
+}
