@@ -213,6 +213,7 @@ footer p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   height: 600px;
   width: 600px;
   margin: 0 20px 0 20px;
@@ -230,4 +231,18 @@ footer p {
   border-style: none;
   padding: 10px;
   border-radius: 5px;
+}
+
+.error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color:black;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
 }

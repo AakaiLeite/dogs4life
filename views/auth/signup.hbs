@@ -23,27 +23,29 @@
         <label>
           Username
         </label>
-        <br>
+        <br />
         <label>
           Email
         </label>
-        <br>
+        <br />
         <label>
           Password
         </label>
       </div>
       <div class="auth-secondary-div">
         <input type="text" name="username" placeholder="Your username" />
-        <br>
+        <br />
         <input type="email" name="email" placeholder="Your email" />
-        <br>
+        <br />
         <input type="password" name="password" placeholder="Your password" />
       </div>
       <br />
     </form>
-  <button type="submit" form="signup-form" >Sign Up</button>
-  {{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
-  {{/if}}
+    <button type="submit" form="signup-form">Sign Up</button>
   </div>
+      {{#if errorMessage}}
+    <div class="error-message">
+        <p class="error">{{errorMessage}}</p>
+    </div>
+      {{/if}}
 </div>

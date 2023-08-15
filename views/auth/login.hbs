@@ -39,9 +39,11 @@
     </div>
     <br>
       <button type="submit">Log In</button>
-      {{#if errorMessage}}
-        <p class="error">{{errorMessage}}</p>
-      {{/if}}
     </form>
   </div>
+     {{#if errorMessage}}
+    <div class="error-message">
+        <p class="error">{{errorMessage}}</p>
+    </div>
+      {{/if}}
 </div>
