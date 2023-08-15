@@ -21,7 +21,7 @@ router.get("/breeds", async (req, res) => {
       currentUser: currentUser,
     });
   } catch (error) {
-    console.log(error);
+    console.log('Erro Breed Find: ', error);
   }
 });
 
@@ -30,7 +30,6 @@ router.get("/breed/:breedId", async (req, res) => {
   try {
     const { breedId } = req.params;
     const breed = await Breed.findById(breedId);
-    console.log(breed.id);
     let dogImg = await dogApi.getBreedImage(breed.id);
     dogImg = dogImg.data[0].url;
 

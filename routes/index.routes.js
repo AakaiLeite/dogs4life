@@ -8,7 +8,7 @@ router.get("/", async (req, res, next) => {
     const currentUser = req.session.currentUser;
     res.render("index", { currentUser });
   } catch (error) {
-    console.log(error);
+    console.log('Error Index: ', error);
   }
 });
 
