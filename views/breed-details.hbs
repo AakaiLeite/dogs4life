@@ -26,19 +26,21 @@
     <div>
       <h2>{{breed.name}}</h2>
     </div>
-    <div>
-      <img src={{image}} />
-    </div>
-    <div>
-      <p>Name: {{breed.name}}</p>
-      <p>Life Span: {{breed.life_span}}</p>
-      <p>Weight: {{breed.weight.metric}} Kg</p>
-      <p>Height: {{breed.height.metric}} Cm</p>
-      <p>Bred For: {{breed.bred_for}}</p>
-      <p>Temperament: {{breed.temperament}}</p>
-      {{#if currentUser}}
-        <button>Favorite</button>
-      {{/if}}
+    <div class="breed-box">
+      <div class="breed-content">
+        <img src={{image}} />
+      </div>
+      <div class="breed-content">
+        <p>Name: {{breed.name}}</p>
+        <p>Life Span: {{breed.life_span}}</p>
+        <p>Weight: {{breed.weight.metric}} Kg</p>
+        <p>Height: {{breed.height.metric}} Cm</p>
+        <p>Bred For: {{breed.bred_for}}</p>
+        <p>Temperament: {{breed.temperament}}</p>
+        {{#if currentUser}}
+          <button>Favorite</button>
+        {{/if}}
+      </div>
     </div>
   </div>
 </div>

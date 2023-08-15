@@ -162,6 +162,23 @@ footer p {
   margin: 10px;
 }
 
+.quatrinary-background-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.quatrinary-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
 .auth-main-div {
   display: flex;
   flex-direction: row;
@@ -182,4 +199,35 @@ footer p {
 
 .auth-secondary-div input {
   margin-right: 5px;
+}
+
+.breed-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breed-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  width: 600px;
+
+}
+
+.breed-content img {
+  height: 600px;
+  width: 600px;
+}
+
+.breed-content button {
+  margin: 10px;
+  color: white;
+  background-color: #2081c3;
+  border-style: none;
+  padding: 10px;
+  border-radius: 5px;
 }
