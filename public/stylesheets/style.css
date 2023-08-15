@@ -89,7 +89,7 @@ footer p {
   color: black;
 }
 
-.login-box {
+.secondary-box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,15 +102,14 @@ footer p {
   border-radius: 10px;
 }
 
-.signup-box {
-  display: flex;
+.secondary-background-div {
+  display:flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: 14rem;
-  width: 32rem;
-  color:black;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
+  background-image: url('../images/dog-colorfull.jpg');
+  background-repeat: none ;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
