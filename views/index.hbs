@@ -1,7 +1,9 @@
+<div>Login or Signup to manage Favorite Breeds</div>
 <div>
   {{#if currentUser}}
     <a href="/profile">{{currentUser.username}}</a>
     <a href="/logout">Logout</a>
+    <a href="/favorites">Favorite Breeds</a>
   {{/if}}
 
   {{#unless currentUser}}

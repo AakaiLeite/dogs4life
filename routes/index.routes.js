@@ -6,8 +6,6 @@ const User = require("../models/User.model");
 router.get("/", async (req, res, next) => {
   try {
     const currentUser = req.session.currentUser;
-
-    console.log(currentUser);
     res.render("index", { currentUser });
   } catch (error) {
     console.log(error);
