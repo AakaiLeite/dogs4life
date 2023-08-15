@@ -215,7 +215,7 @@ footer p {
   align-items: center;
   height: 600px;
   width: 600px;
-
+  margin: 0 20px 0 20px;
 }
 
 .breed-content img {
