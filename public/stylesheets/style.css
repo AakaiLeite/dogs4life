@@ -89,6 +89,18 @@ footer p {
   color: black;
 }
 
+.secondary-background-div {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/dog-colorfull.jpg');
+  background-repeat: none ;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+
+}
 .secondary-box {
   display: flex;
   justify-content: center;
@@ -102,14 +114,29 @@ footer p {
   border-radius: 10px;
 }
 
-.secondary-background-div {
+.terciary-background-div {
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   background-image: url('../images/dog-colorfull.jpg');
   background-repeat: none ;
   background-size: cover;
   width: 100vw;
   height: 100vh;
+}
+
+.terciary-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 18rem;
+  width: 14rem;
+  color:black;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  margin: 10px;
 }
