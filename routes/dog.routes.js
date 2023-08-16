@@ -39,4 +39,9 @@ router.get("/breed/:breedId", async (req, res) => {
   }
 });
 
+router.get('/trending', (req, res) => {
+  const currentUser = req.session.currentUser;
+  res.render('breed-trending', {currentUser});
+})
+
 module.exports = router;

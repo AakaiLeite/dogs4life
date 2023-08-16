@@ -1,12 +1,13 @@
 <header>
   <div>
-    <p>Dogs 4 Life</p>
+    <a href="/">Dogs 4 Life</a>
   </div>
   <nav>
     <a href="/">Home</a>
     <a href="/breeds">Find a breed</a>
+     <a href="/trending">Trending</a>
     {{#if currentUser}}
-      <a href="/favorites">Favorite Breeds</a>
+      <a href="/favorites">My Favorite Breeds</a>
     {{/if}}
   </nav>
   <nav>
@@ -23,7 +24,7 @@
 </header>
 <div class="main-background-div">
   <div class="secondary-box">
-    <h2>User Profile: {{currentUser.username}}</h2>
+    <h2>My Profile: {{currentUser.username}}</h2>
     <a href="/favorites">Favorite Breeds</a>
     <br/>
     <button>
