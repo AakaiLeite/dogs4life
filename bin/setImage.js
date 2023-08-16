@@ -5,8 +5,7 @@ const dogApi = new DogApi();
 
 const mongoose = require("mongoose");
 
-const MONGO_URI =
-  "mongodb+srv://mikleite:UTj1xL3E1bEomanu@ironhack-webdev-bootcam.vmxtj0t.mongodb.net/Dogs4Life";
+const MONGO_URI = process.env.MONGO_URI;
 
 async function setImages() {
   await mongoose.connect(MONGO_URI);
