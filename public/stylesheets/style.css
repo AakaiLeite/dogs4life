@@ -35,6 +35,12 @@ header p {
   margin: 20px;
 }
 
+header a {
+  margin: 40px;
+  text-decoration: none;
+  color: white;
+}
+
 nav a {
   margin: 20px;
   text-decoration: none;
@@ -61,12 +67,12 @@ footer p {
 }
 
 .main-background-div {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../images/dog-background.jpg');
-  background-repeat: none ;
+  background-image: url("../images/dog-background.jpg");
+  background-repeat: none;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -79,7 +85,7 @@ footer p {
   flex-direction: column;
   height: 12rem;
   width: 42rem;
-  color:black;
+  color: black;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
@@ -90,16 +96,15 @@ footer p {
 }
 
 .secondary-background-div {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../images/dog-colorfull.jpg');
-  background-repeat: none ;
+  background-image: url("../images/dog-colorfull.jpg");
+  background-repeat: none;
   background-size: cover;
   width: 100vw;
   height: 100vh;
-
 }
 .secondary-box {
   display: flex;
@@ -108,7 +113,7 @@ footer p {
   flex-direction: column;
   height: 16rem;
   width: 32rem;
-  color:black;
+  color: black;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
@@ -136,13 +141,13 @@ footer p {
 }
 
 .terciary-background-div {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  background-image: url('../images/dog-colorfull.jpg');
-  background-repeat: none ;
+  background-image: url("../images/dog-colorfull.jpg");
+  background-repeat: none;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -155,7 +160,7 @@ footer p {
   flex-direction: column;
   height: 18rem;
   width: 14rem;
-  color:black;
+  color: black;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
@@ -238,7 +243,7 @@ footer p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color:black;
+  color: black;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
