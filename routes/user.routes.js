@@ -9,7 +9,7 @@ const Breed = require("../models/Breed.model");
 const User = require("../models/User.model");
 const Favorite = require("../models/Favorite.Model");
 
-// GET Routes
+// Profile route
 router.get("/profile", isLoggedIn, (req, res) => {
   const currentUser = req.session.currentUser;
   res.render("user/profile", { currentUser });
