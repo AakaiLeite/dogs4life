@@ -7,92 +7,56 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 
 const Breed = require("../models/Breed.model");
 const User = require("../models/User.model");
-const Favorite = require("../models/Favorite.Model");
 
-// Profile route
-router.get("/profile", isLoggedIn, (req, res) => {
+// Routes
+router.get("/user/profile", isLoggedIn, (req, res) => {
   const currentUser = req.session.currentUser;
   res.render("user/profile", { currentUser });
 });
 
-// favorites routes
-router.get("/favorites", async (req, res) => {
+router.get("/user/favorites", isLoggedIn, async (req, res) => {
   const currentUser = req.session.currentUser;
   try {
-    const user = await User.findById(currentUser._id).populate(
-      "favoriteBreeds"
+    const userFavorites = await User.findById(currentUser._id).populate(
+      "favorites"
     );
-    const favoriteBreeds = user.favoriteBreeds;
-
-    res.render("user/favorites", { currentUser, favoriteBreeds });
+    // missing something to do with populate
+    res.render("user/favorites", { currentUser, userFavorites });
   } catch (error) {
-    console.log("Error fetching favorite breeds:", error);
+    console.log("Error Favorites: ", error);
   }
 });
 
-// Add a breed to favorites
-router.post("/favorites/add/:breedId", isLoggedIn, async (req, res) => {
-  try {
-    const currentUser = req.session.currentUser;
-    const breedId = req.params.breedId;
-    const user = await UserModel.findById(currentUser._id);
-
-    // Check if the breed is already in favorites
-    if (!user.favoriteBreeds.includes(breedId)) {
-      user.favoriteBreeds.push(breedId);
-      await user.save();
-
-      // Create a new Favorite record
-      await FavoriteModel.create({ user: user._id, breed: breedId });
-
-      res.redirect("/user/favorites");
-    } else {
-      res.redirect("/user/favorites");
-    }
-  } catch (error) {
-    console.log("Error adding breed to favorites:", error);
-  }
-});
-
-// update favorist list
-router.get("/favorites", async (req, res) => {
+router.post("user/favorites/add/:breedId", isLoggedIn, async (req, res) => {
   const currentUser = req.session.currentUser;
   try {
-    const user = await User.findById(currentUser._id).populate(
-      "favoriteBreeds"
-    );
-    const favoriteBreeds = user.favoriteBreeds;
-
-    res.render("user/favorites", { currentUser, favoriteBreeds });
+    const { breedId } = req.params;
+    await User.findByIdAndUpdate(currentUser._id, {
+      $push: { favorites: breedId },
+    });
+    res.redirect("/favorites");
+    console.log(currentUser);
   } catch (error) {
-    console.log("Error fetching favorite breeds:", error);
+    console.log("Error Setting Favorite: ", error);
   }
 });
 
-// remove breed from favorites
-router.post("/favorites/remove/:breedId", isLoggedIn, async (req, res) => {
+router.post("/user/favorites/remove/:breedId", isLoggedIn, async (req, res) => {
+  const currentUser = req.session.currentUser;
   try {
-    const currentUser = req.session.currentUser;
-    const breedId = req.params.breedId;
-    const user = await User.findById(currentUser._id);
-
-    // Find the index of the breed in favorites
-    const index = user.favoriteBreeds.indexOf(breedId);
-    if (index !== -1) {
-      user.favoriteBreeds.splice(index, 1);
-      await user.save();
-
-      // Delete the corresponding Favorite record
-      await Favorite.findOneAndDelete({ user: user._id, breed: breedId });
-
-      res.redirect("/user/favorites");
-    } else {
-      res.redirect("/user/favorites");
-    }
+    const { breedId } = req.params;
+    await User.findByIdAndRemove(currentUser._id, {
+      $pull: { favorites: breedId },
+    });
+    res.redirect("/favorites");
   } catch (error) {
-    console.log("Error removing breed from favorites:", error);
-    res.status(500).send("Internal Server Error");
+    console.log("Error Setting Favorite: ", error);
   }
+});
+
+router.get("/user/comments", isLoggedIn, (req, res) => {
+  const currentUser = req.session.currentUser;
+  res.render("user/comments", { currentUser });
 });
 
 module.exports = router;

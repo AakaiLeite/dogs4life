@@ -7,12 +7,12 @@
     <a href="/breeds">Breeds</a>
     <a href="/breeds/search">Find a breed</a>
     {{#if currentUser}}
-      <a href="/favorites">Favorites</a>
+      <a href="/user/favorites">Favorites</a>
     {{/if}}
   </nav>
   <nav>
     {{#if currentUser}}
-      <a href="/profile">{{currentUser.username}}</a>
+      <a href="/user/profile">{{currentUser.username}}</a>
       <a href="/logout">Logout</a>
     {{/if}}
 
@@ -39,11 +39,23 @@
         <p>Bred For: {{breed.bred_for}}</p>
         <p>Temperament: {{breed.temperament}}</p>
         {{#if currentUser}}
-          <form method="POST" action="/user/favorites/add/BREED_ID">
+        {{#unless currentUser.favorites.breed._id}}
+          <form action="/user/favorites/add/{{breed._id}}" method="POST">
             <button type="submit">Add to Favorites</button>
           </form>
+        <div class="comment-div">
+          <label for="content">Comment</label>
+          <form
+            action="/user/comments/create/{{breed._id}}"
+            id="comment-form"
+            method="post"
+          >
+            <textarea name="content" id="content" cols="60" rows="6"></textarea>
+          </form>
+          <button type="submit" form="comment-form">Leave a comment</button>
+        </div>
+        {{/unless}}
         {{/if}}
-
       </div>
     </div>
   </div>

@@ -7,12 +7,12 @@
     <a href="/breeds">Breeds</a>
     <a href="/breeds/search">Find a breed</a>
     {{#if currentUser}}
-    <a href="/favorites">Favorites</a>
+    <a href="/user/favorites">Favorites</a>
     {{/if}}
   </nav>
   <nav>
     {{#if currentUser}}
-      <a href="/profile">{{currentUser.username}}</a>
+      <a href="/user/profile">{{currentUser.username}}</a>
       <a href="/logout">Logout</a>
     {{/if}}
 

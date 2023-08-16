@@ -20,6 +20,18 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    favorites: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Breed'
+      }
+    ],
+    comments: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Breed'
+      }
+    ],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

@@ -13,8 +13,8 @@ const User = require("../models/User.model");
 
 // Routes
 router.get("/breeds", async (req, res) => {
+  const currentUser = req.session.currentUser;
   try {
-    const currentUser = req.session.currentUser;
     const allBreeds = await Breed.find();
     let dogImg = []
     allBreeds.forEach((breed) => {
@@ -59,11 +59,6 @@ router.get("/breed/:breedId", async (req, res) => {
   } catch (error) {
     console.log("Error Breed Details: ", error);
   }
-});
-
-router.get("/trending", (req, res) => {
-  const currentUser = req.session.currentUser;
-  res.render("breed-trending", { currentUser });
 });
 
 module.exports = router;

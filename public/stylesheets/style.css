@@ -190,6 +190,7 @@ footer p {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
+  min-height: 100vh;
 }
 
 .auth-main-div {
@@ -264,6 +265,13 @@ footer p {
   color: black;
   margin: 10px;
   padding: 5px;
+}
+
+.comment-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .error-message {

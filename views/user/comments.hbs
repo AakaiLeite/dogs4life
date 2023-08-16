@@ -22,17 +22,6 @@
     {{/unless}}
   </nav>
 </header>
-<div class="terciary-background-div">
-  {{#each favorites}}
-    <div class="favorite-card">
-      <div class="favorite-content">
-        <img src={{image}} />
-      </div>
-      <div class="favorite-content">
-        <p>Name: {{breed.name}}</p>
-        <p>Temperament: {{breed.temperament}}</p>
-        <a href="/breeds/{{breed._id}}"></a>
-      </div>
-    </div>
-  {{/each}}
+<div class="quinary-background-div">
+    <h2>{{currentUser.username}}'s comments</h2>
 </div>
