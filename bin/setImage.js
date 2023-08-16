@@ -5,13 +5,11 @@ const dogApi = new DogApi();
 
 const mongoose = require("mongoose");
 
-const MONGO_URI = process.env.MONGODB_URI;
+const MONGO_URI = process.env.MONGO_URI;
 
 async function setImages() {
   await mongoose.connect(MONGO_URI);
-  let allBreeds = await Breed.find();
-
-  const breedsInterval = setInterval(async () => {
+  let allBreeds = await Breed.find();  const breedsInterval = setInterval(async () => {
     if (allBreeds.length === 0) {
       clearInterval(breedsInterval);
     }

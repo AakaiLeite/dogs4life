@@ -29,10 +29,11 @@
         <img src={{image}} />
       </div>
       <div class="favorite-content">
-        <p>Name: {{breed.name}}</p>
-        <p>Temperament: {{breed.temperament}}</p>
-        <a href="/breeds/{{breed._id}}"></a>
+        <a href="/breeds/{{breed._id}}">{{breed.name}}</a>
       </div>
+      <form action="/user/favorites/remove/{{breed._id}}" method="POST">
+        <button type="submit">Delete</button>
+      </form>
     </div>
   {{/each}}
 </div>

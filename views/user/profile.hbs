@@ -7,7 +7,7 @@
     <a href="/breeds">Breeds</a>
     <a href="/breeds/search">Find a breed</a>
     {{#if currentUser}}
-    <a href="/user/favorites">Favorites</a>
+      <a href="/user/favorites">Favorites</a>
     {{/if}}
   </nav>
   <nav>
@@ -27,8 +27,8 @@
     <h2>My Profile: {{currentUser.username}}</h2>
     <a href="/user/favorites">Favorite Breeds</a>
     <a href="/user/comments">My comments</a>
-    <button>
-      Delete Profile
-    </button>
+    <form action="/user/profile/delete" method="POST">
+      <button type="submit">Delete Profile</button> <!-- why isnt this working? -->
+    </form>
   </div>
 </div>
