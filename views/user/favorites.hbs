@@ -28,3 +28,17 @@
         <p>favorite</p>
     </div>
 </div>
+
+<div>
+  <h2>Your Favorite Breeds</h2>
+<ul>
+  <% favoriteBreeds.forEach(breed => { %>
+    <li>
+      <%= breed.name %> 
+      <form method="POST" action="/user/favorites/remove/BREED_ID">
+        <button type="submit">Remove from Favorites</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
+</div>

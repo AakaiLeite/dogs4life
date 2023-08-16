@@ -6,9 +6,9 @@
     <a href="/">Home</a>
     <a href="/breeds">Breeds</a>
     <a href="/breeds/search">Find a breed</a>
-     <a href="/trending">Trending</a>
+    <a href="/trending">Trending</a>
     {{#if currentUser}}
-    <a href="/favorites">Favorites</a>
+      <a href="/favorites">Favorites</a>
     {{/if}}
   </nav>
   <nav>
@@ -40,8 +40,11 @@
         <p>Bred For: {{breed.bred_for}}</p>
         <p>Temperament: {{breed.temperament}}</p>
         {{#if currentUser}}
-          <button>Favorite</button>
+          <form method="POST" action="/user/favorites/add/BREED_ID">
+            <button type="submit">Add to Favorites</button>
+          </form>
         {{/if}}
+
       </div>
     </div>
   </div>
