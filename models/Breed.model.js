@@ -17,6 +17,7 @@ const breed = new Schema({
   temperament: String,
   origin: String,
   ref_img_id: String,
+  image: String
 });
 
 const DogBreed = model("Breed", breed);

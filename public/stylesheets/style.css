@@ -184,6 +184,14 @@ footer p {
   margin-top: 15px;
 }
 
+.quinary-background-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .auth-main-div {
   display: flex;
   flex-direction: row;
@@ -236,6 +244,26 @@ footer p {
   border-style: none;
   padding: 10px;
   border-radius: 5px;
+}
+
+.breed-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.breed-card img {
+  height: 200px;
+  width: 200px;
+}
+
+.breed-card a {
+  text-decoration: none;
+  color: black;
+  margin: 10px;
+  padding: 5px;
 }
 
 .error-message {

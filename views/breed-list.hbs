@@ -6,9 +6,8 @@
     <a href="/">Home</a>
     <a href="/breeds">Breeds</a>
     <a href="/breeds/search">Find a breed</a>
-     <a href="/trending">Trending</a>
     {{#if currentUser}}
-    <a href="/favorites">Favorites</a>
+      <a href="/favorites">Favorites</a>
     {{/if}}
   </nav>
   <nav>
@@ -23,6 +22,15 @@
     {{/unless}}
   </nav>
 </header>
-<div>
-    breeds list page
+<div class="quinary-background-div">
+  {{#each allBreeds}}
+    <div class="terciary-box">
+      <div class="breed-card">
+        <img src="{{image}}" />
+      </div>
+      <div class="breed-card">
+        <a href="/breed/{{_id}}">{{name}}</a>
+      </div>
+    </div>
+  {{/each}}
 </div>

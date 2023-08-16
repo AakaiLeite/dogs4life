@@ -12,8 +12,22 @@ const Breed = require("../models/Breed.model");
 const User = require("../models/User.model");
 
 // Routes
-router.get("/breeds", (req, res) => {
-  res.render("breed-list");
+router.get("/breeds", async (req, res) => {
+  try {
+    const currentUser = req.session.currentUser;
+    const allBreeds = await Breed.find();
+    let dogImg = []
+    allBreeds.forEach((breed) => {
+      dogImg.push(breed.image);
+    }) 
+    res.render("breed-list", {
+      allBreeds: allBreeds,
+      image: dogImg,
+      currentUser: currentUser,
+    });
+  } catch (error) {
+    console.log("Error Listing Breeds: ", error);
+  }
 });
 
 router.get("/breeds/search", async (req, res) => {
