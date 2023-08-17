@@ -125,7 +125,7 @@ router.post(
       });
       res.redirect(`/breed/${breedId}`);
     } catch (error) {
-      console.log("Error Setting Comment: ", error);
+      console.log("Error Deleting Comment: ", error);
     }
   }
 );
