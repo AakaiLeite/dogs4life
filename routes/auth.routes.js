@@ -106,7 +106,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     });
   }
 
-  // Search the database for a user with the email submitted in the form
+  // Search the database for a user with the username submitted in the form
   User.findOne({ username })
     .then((user) => {
       // If the user isn't found, send an error message that user provided wrong credentials
@@ -117,7 +117,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         return;
       }
 
-      // If user is found based on the username, check if the in putted password matches the one saved in the database
+      // If user is found based on the database, check if the in putted password matches the one saved for that user
       bcrypt
         .compare(password, user.password)
         .then((isSamePassword) => {

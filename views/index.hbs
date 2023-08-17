@@ -5,8 +5,8 @@
   <nav>
     <a href="/">Home</a>
     <a href="/breeds">Breeds</a>
-    <a href="/breeds/search">Find a breed</a>
     {{#if currentUser}}
+    <a href="/breeds/search">Find a breed</a>
     <a href="/user/favorites">Favorites</a>
     {{/if}}
   </nav>
@@ -27,7 +27,8 @@
   <div class="main-box">
     <p>Find information and pictures about dog breeds</p>
     {{#unless currentUser}}
-    <p><a href="/login">Login</a> or <a href="/signup">Signup</a> to view Breed details and manage your Favorite Breeds</p>
+    <p><a href="/login">Login</a> or <a href="/signup">Signup</a></p>
+    <p> to view Breed Details, Find a Breed and manage your Favorite Breeds</p>
     {{/unless}}
     {{#if currentUser}}
       <p>Welcome {{currentUser.username}}</p>

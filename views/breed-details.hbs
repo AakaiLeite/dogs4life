@@ -1,0 +1,90 @@
+<header>
+  <div>
+    <a href="/">Dogs 4 Life</a>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/breeds">Breeds</a>
+    {{#if currentUser}}
+    <a href="/breeds/search">Find a breed</a>
+      <a href="/user/favorites">Favorites</a>
+    {{/if}}
+  </nav>
+  <nav>
+    {{#if currentUser}}
+      <a href="/user/profile">{{currentUser.username}}</a>
+      <a href="/logout">Logout</a>
+    {{/if}}
+
+    {{#unless currentUser}}
+      <a href="/login">Login</a>
+      <a href="/signup">Signup</a>
+    {{/unless}}
+  </nav>
+</header>
+<div class="quatrinary-background-div">
+  <div class="quatrinary-box">
+    <div>
+      <h2>{{breed.name}}</h2>
+    </div>
+    <div class="breed-box">
+      <div class="breed-content">
+        <img src={{image}} />
+      </div>
+      <div class="breed-content">
+        <p>Name: {{breed.name}}</p>
+        <p>Life Span: {{breed.life_span}}</p>
+        <p>Weight: {{breed.weight.metric}} Kg</p>
+        <p>Height: {{breed.height.metric}} Cm</p>
+        <p>Bred For: {{breed.bred_for}}</p>
+        <p>Temperament: {{breed.temperament}}</p>
+
+        {{#if isFav}}
+          <form action="/user/favorites/remove/{{breed._id}}" method="POST">
+            <button type="submit">Remove Favorites</button>
+          </form>
+        {{else}}
+          <form action="/user/favorites/add/{{breed._id}}" method="POST">
+            <button type="submit">Add to Favorites</button>
+          </form>
+        {{/if}}
+        {{#if currentUser}}
+          <div class="comment-div">
+            <label for="content">Comment</label>
+            <form
+              action="/user/comments/add/{{breed._id}}"
+              id="comment-form"
+              method="POST"
+            >
+              <textarea
+                name="content"
+                id="content"
+                cols="60"
+                rows="6"
+              ></textarea>
+            </form>
+            <button type="submit" form="comment-form">Leave a comment</button>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+    <div class="breed-comments">
+      {{#each breed.comments}}
+    <div class="breed-comment-div">
+      <div class="breed-comment">
+        <h3>{{author.username}}</h3>
+        <p>{{content}}<p>
+      </div>
+      <div class="breed-comment">
+        <form
+          action="/user/{{breed._id}}/comments/remove/{{_id}}"
+          method="post"
+        >
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

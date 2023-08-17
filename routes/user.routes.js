@@ -123,7 +123,7 @@ router.post(
       await Breed.findByIdAndUpdate(breedId, {
         $pull: { comments: commentId },
       });
-      res.redirect(`/breed/${breedId}`); // why isn't this coloring breedId?
+      res.redirect(`/breed/${breedId}`);
     } catch (error) {
       console.log("Error Setting Comment: ", error);
     }
