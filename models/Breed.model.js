@@ -17,7 +17,13 @@ const breed = new Schema({
   temperament: String,
   origin: String,
   ref_img_id: String,
-  image: String
+  image: String,
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Comment",
+    },
+  ],
 });
 
 const DogBreed = model("Breed", breed);

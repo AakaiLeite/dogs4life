@@ -29,8 +29,8 @@ const userSchema = new Schema(
     comments: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Breed'
-      }
+        ref: "Comment",
+      },
     ],
   },
   {

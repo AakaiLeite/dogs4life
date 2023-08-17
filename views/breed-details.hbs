@@ -38,25 +38,51 @@
         <p>Height: {{breed.height.metric}} Cm</p>
         <p>Bred For: {{breed.bred_for}}</p>
         <p>Temperament: {{breed.temperament}}</p>
-        {{#if currentUser}}
-        {{#unless currentUser.favorites.breed._id}}
-          <form action="/user/favorites/add/{{breed._id}}" method="POST">
-            <button type="submit">Add to Favorites</button>
-          </form>
-        <div class="comment-div">
-          <label for="content">Comment</label>
-          <form
-            action="/user/comments/create/{{breed._id}}"
-            id="comment-form"
-            method="POST"
-          >
-            <textarea name="content" id="content" cols="60" rows="6"></textarea>
-          </form>
-          <button type="submit" form="comment-form">Leave a comment</button>
-        </div>
-        {{/unless}}
+       
+
+        {{#if isFav}}
+            <form action="/user/favorites/remove/{{breed._id}}" method="POST">
+              <button type="submit">Remove Favorites</button>
+            </form>
+            {{else}}
+<form action="/user/favorites/add/{{breed._id}}" method="POST">
+              <button type="submit">Add to Favorites</button>
+            </form>
+            {{/if}}
+             {{#if currentUser}}
+            <div class="comment-div">
+              <label for="content">Comment</label>
+              <form
+                action="/user/comments/add/{{breed._id}}"
+                id="comment-form"
+                method="POST"
+              >
+                <textarea
+                  name="content"
+                  id="content"
+                  cols="60"
+                  rows="6"
+                ></textarea>
+              </form>
+              <button type="submit" form="comment-form">Leave a comment</button>
+            </div>
+
+            
         {{/if}}
       </div>
     </div>
+
+    <div class="populate">
+      {{#each breed.comments}}
+        <h1>{{author.username}}</h1>
+        <h2>{{content}}</h2>
+
+<form action="/user/{{../breed._id}}/comments/remove/{{_id}}" method="post">
+  <button type="submit">Delete</button>
+</form>
+
+      {{/each}}
+    </div>
+
   </div>
 </div>

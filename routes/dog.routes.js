@@ -16,10 +16,10 @@ router.get("/breeds", async (req, res) => {
   const currentUser = req.session.currentUser;
   try {
     const allBreeds = await Breed.find();
-    let dogImg = []
+    let dogImg = [];
     allBreeds.forEach((breed) => {
       dogImg.push(breed.image);
-    }) 
+    });
     res.render("breed-list", {
       allBreeds: allBreeds,
       image: dogImg,
@@ -45,9 +45,26 @@ router.get("/breeds/search", async (req, res) => {
 
 router.get("/breed/:breedId", async (req, res) => {
   const currentUser = req.session.currentUser;
+  let isFav;
+  const { breedId } = req.params;
   try {
-    const { breedId } = req.params;
-    const breed = await Breed.findById(breedId);
+    const thisUser = await User.findById(currentUser._id);
+
+    if (thisUser.favorites.includes(`${breedId}`)) {
+      isFav = true;
+    }
+
+    const breed = await Breed.findById(breedId).populate("comments");
+    await breed.populate({
+      path: "comments",
+      populate: {
+        path: "author",
+        ref: " User",
+      },
+    });
+
+    console.log(breed.comments);
+
     let dogImg = await dogApi.getBreedImage(breed.id);
     dogImg = dogImg.data[0].url;
 
@@ -55,6 +72,7 @@ router.get("/breed/:breedId", async (req, res) => {
       breed: breed,
       image: dogImg,
       currentUser: currentUser,
+      isFav,
     });
   } catch (error) {
     console.log("Error Breed Details: ", error);

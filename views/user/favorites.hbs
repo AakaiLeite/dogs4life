@@ -22,18 +22,16 @@
     {{/unless}}
   </nav>
 </header>
+
 <div class="terciary-background-div">
-  {{#each favorites}}
+  {{#each userFavorites.favorites}}
     <div class="favorite-card">
       <div class="favorite-content">
-        <img src={{image}} />
+        <img src={{this.image}} style="height: 200px;" alt="" />
       </div>
       <div class="favorite-content">
-        <a href="/breeds/{{breed._id}}">{{breed.name}}</a>
+        <a href="/breed/{{this._id}}">{{this.name}}</a>
       </div>
-      <form action="/user/favorites/remove/{{breed._id}}" method="POST">
-        <button type="submit">Delete</button>
-      </form>
     </div>
   {{/each}}
 </div>
