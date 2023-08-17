@@ -110,7 +110,7 @@ router.post("/user/comments/add/:breedId", isLoggedIn, async (req, res) => {
 
 // Delete
 router.post(
-  "/user/:breedId/comments/remove/:commentId",
+  "/user/comments/remove/:commentId/:breedId",
   isLoggedIn,
   async (req, res) => {
     const currentUser = req.session.currentUser;
