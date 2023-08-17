@@ -22,11 +22,12 @@
     {{/unless}}
   </nav>
 </header>
+
 <div class="main-background-div">
   <div class="main-box">
     <p>Find information and pictures about dog breeds</p>
     {{#unless currentUser}}
-    <p><a href="/login">Login</a> or <a href="/signup">Signup</a> to manage your Favorite Breeds</p>
+    <p><a href="/login">Login</a> or <a href="/signup">Signup</a> to view Breed details and manage your Favorite Breeds</p>
     {{/unless}}
     {{#if currentUser}}
       <p>Welcome {{currentUser.username}}</p>

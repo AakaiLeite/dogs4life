@@ -22,13 +22,14 @@
     {{/unless}}
   </nav>
 </header>
+
 <div class="main-background-div">
   <div class="secondary-box">
     <h2>My Profile: {{currentUser.username}}</h2>
     <a href="/user/favorites">Favorite Breeds</a>
-    <a href="/user/comments">My comments</a>
+    <!-- <a href="/user/comments">My comments</a> WIP -->
     <form action="/user/profile/delete" method="POST">
-      <button type="submit">Delete Profile</button> <!-- why isnt this working? -->
+      <button type="submit">Delete Profile</button>
     </form>
   </div>
 </div>

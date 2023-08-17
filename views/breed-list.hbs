@@ -22,11 +22,12 @@
     {{/unless}}
   </nav>
 </header>
+
 <div class="quinary-background-div">
   {{#each allBreeds}}
     <div class="terciary-box">
       <div class="breed-card">
-        <img src="{{image}}" />
+        <a href="/breed/{{_id}}"><img src="{{image}}" /></a>
       </div>
       <div class="breed-card">
         <a href="/breed/{{_id}}">{{name}}</a>

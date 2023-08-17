@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User.model");
 
-/* GET home page */
+// Home page Route
 router.get("/", async (req, res, next) => {
   try {
     const currentUser = req.session.currentUser;

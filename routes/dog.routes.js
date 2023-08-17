@@ -11,7 +11,7 @@ const dogApi = new DogApi();
 const Breed = require("../models/Breed.model");
 const User = require("../models/User.model");
 
-// Routes
+// Dog Routes
 router.get("/breeds", async (req, res) => {
   const currentUser = req.session.currentUser;
   try {
@@ -43,17 +43,15 @@ router.get("/breeds/search", async (req, res) => {
   }
 });
 
-router.get("/breed/:breedId", async (req, res) => {
+router.get("/breed/:breedId", isLoggedIn, async (req, res) => {
   const currentUser = req.session.currentUser;
-  let isFav;
   const { breedId } = req.params;
+  let isFav;
   try {
-    const thisUser = await User.findById(currentUser._id);
-
-    if (thisUser.favorites.includes(`${breedId}`)) {
-      isFav = true;
-    }
-
+      const thisUser = await User.findById(currentUser._id);
+      if (thisUser.favorites.includes(`${breedId}`)) {
+        isFav = true;
+      }
     const breed = await Breed.findById(breedId).populate("comments");
     await breed.populate({
       path: "comments",
@@ -62,12 +60,8 @@ router.get("/breed/:breedId", async (req, res) => {
         ref: " User",
       },
     });
-
-    console.log(breed.comments);
-
     let dogImg = await dogApi.getBreedImage(breed.id);
     dogImg = dogImg.data[0].url;
-
     res.render("breed-details", {
       breed: breed,
       image: dogImg,
@@ -78,5 +72,4 @@ router.get("/breed/:breedId", async (req, res) => {
     console.log("Error Breed Details: ", error);
   }
 });
-
 module.exports = router;

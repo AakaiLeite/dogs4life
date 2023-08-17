@@ -60,6 +60,7 @@ footer {
   background-color: #0a2c42;
   color: white;
   vertical-align: middle;
+  clear: both;
 }
 
 footer p {
@@ -165,6 +166,10 @@ footer p {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   margin: 10px;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
 }
 
 .quatrinary-background-div {
@@ -172,8 +177,8 @@ footer p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   width: 100vw;
+  margin-top: 40px;
 }
 
 .quatrinary-box {
@@ -187,10 +192,10 @@ footer p {
 .quinary-background-div {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
-  min-height: 100vh;
+  margin: 60px 20px 20px 20px;
 }
 
 .auth-main-div {
@@ -272,6 +277,70 @@ footer p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.breed-comments {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.breed-comment-div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  text-align: justify;
+  border-style: dotted;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 80vw;
+}
+
+.breed-comment-div button {
+  margin: 10px;
+  color: white;
+  background-color: #2081c3;
+  border-style: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.breed-comment {
+  margin: 0 20px 0 20px;
+}
+
+.favorite-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.favorite-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.favorite-content a {
+  text-decoration: none;
+  color: black;
+}
+
+.favorite-content img {
+  height: 200px;
+  width: 200px;
+  padding: 20px;
+  border-radius: 30px;
 }
 
 .error-message {
