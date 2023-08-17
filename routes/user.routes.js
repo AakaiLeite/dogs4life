@@ -74,7 +74,7 @@ router.post("/user/favorites/remove/:breedId", isLoggedIn, async (req, res) => {
 router.get("/user/comments", isLoggedIn, async (req, res) => {
   const currentUser = req.session.currentUser;
   try {
-    const userComments = await User.findById(currentUser._id).populate(
+    await User.findById(currentUser._id).populate(
       "comments"
     );
     res.render("user/comments", { currentUser });
