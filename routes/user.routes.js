@@ -63,7 +63,7 @@ router.post("/user/favorites/remove/:breedId", isLoggedIn, async (req, res) => {
     await User.findByIdAndUpdate(currentUser._id, {
       $pull: { favorites: breedId },
     });
-    res.redirect(`/breed/${breedId}`);
+    res.redirect(`/user/favorites`);
   } catch (error) {
     console.log("Error Setting Favorite: ", error);
   }
