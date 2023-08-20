@@ -41,7 +41,7 @@ A platform for Dog lovers, where the visitor can register and as a user can sear
 | `GET`      | `/user/favorites`                     | Private Route. Renders a User's favorites page | { currentUser, userFavorites } | view.                                              |                                                          |
 | `POST`      | `/ruser/favorites/add/:breedId`         | Private Route. Adds a favorite breed to the User's favorites 
 view.
-| `POST`      | `/user/comments/add/:breedId`                                | Private Route. Adds a comment to by a User to the breed details page view.                              |                                                          |
+| `POST`      | `/user/comments/add/:breedId`                                | Private Route. Adds a comment by a User to the breed details page view.                              |                                                          |
 | `POST`      | `/user/comments/remove/:breedId/:commentId`                                | Private Route. Removes a comment by a User from the breed details page view.                              |                                                          |
 particular.             |                                                          |
 
