@@ -5,23 +5,47 @@ const dogApi = new DogApi();
 
 const mongoose = require("mongoose");
 
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = "mongodb+srv://mikleite:UTj1xL3E1bEomanu@ironhack-webdev-bootcam.vmxtj0t.mongodb.net/Dogs4Life";
 
-async function setImages() {
+async function setAllImages() {
   await mongoose.connect(MONGO_URI);
-  let allBreeds = await Breed.find();  const breedsInterval = setInterval(async () => {
+  let allBreeds = await Breed.find();
+  const breedsInterval = setInterval(async () => {
     if (allBreeds.length === 0) {
       clearInterval(breedsInterval);
     }
     let breed = allBreeds[0];
     let breedImg = await dogApi.getBreedImage(breed.id);
     breedImg = breedImg.data[0].url;
-    let updateBreed = await Breed.findByIdAndUpdate(breed._id, {
-      $set: { image: breedImg }},
-      { strict: false });
+    let updateBreed = await Breed.findByIdAndUpdate(
+      breed._id,
+      {
+        $set: { image: breedImg },
+      },
+      { strict: false }
+    );
     console.log(updateBreed);
     allBreeds = allBreeds.slice(1, allBreeds.length - 1);
   }, 60000);
 }
 
-setImages();
+async function setMissingImages() {
+  await mongoose.connect(MONGO_URI);
+  let allBreeds = await Breed.find();
+  allBreeds.forEach(async (breed) => {
+    if (!breed.image) {
+      let breedImg = await dogApi.getBreedImage(breed.id)
+      breedImg = breedImg.data[0].url;
+      let updateBreed = await Breed.findByIdAndUpdate(
+        breed._id,
+        {
+          $set: { image: breedImg },
+        },
+        { strict: false }
+      );
+      console.log(updateBreed);
+    }
+  });
+}
+
+setMissingImages();
