@@ -33,12 +33,12 @@ A platform for Dog lovers, where the visitor can register and as a user can sear
 | `POST`     | `/login`                           | Sends Login form data to the server.                                     | { email, password }                                      |
 | `GET`      | `/signup`                          | Renders `signup` form view.                                              |                                                          |
 | `POST`     | `/signup`                          | Sends Sign Up info to the server and creates user in the DB.             | { email, password }                                      |
-| `GET`      | `/breeds`            | Renders a page with a  cards list of all dog breeds from the DB. | { allBreeds, image, currentUser } |view.                         |                                                          |
-| `GET`      | `/breeds/search`            | Private Route. Allows the user to search for a breed. | { allBreeds, currentUser }  |
-| `GET`      | `/breed/:breedId`               | Private route. Renders the breed details page | { breed, image, currentUser }                                                                                    
-| `GET`     | `/user/profile`              | Private Route. Renders the User profile page.                 | { currentUser }                          |
+| `GET`      | `/breeds`            | Renders a page with a  cards list of all dog breeds from the DB. |  |view.                         |                                                          |
+| `GET`      | `/breeds/search`            | Private Route. Allows the user to search for a breed. |  |
+| `GET`      | `/breed/:breedId`               | Private route. Renders the breed details page |                                                                                   
+| `GET`     | `/user/profile`              | Private Route. Renders the User profile page.                 |                           |
 | `POST`   | `/user/profile/delete` | Private Route. Deletes the existing User profile user.      |                                                          |
-| `GET`      | `/user/favorites`                     | Private Route. Renders a User's favorites page | { currentUser, userFavorites } | view.                                              |                                                          |
+| `GET`      | `/user/favorites`                     | Private Route. Renders a User's favorites page |  | view.                                              |                                                          |
 | `POST`      | `/ruser/favorites/add/:breedId`         | Private Route. Adds a favorite breed to the User's favorites 
 view.
 | `POST`      | `/user/comments/add/:breedId`                                | Private Route. Adds a comment by a User to the breed details page view.                              |                                                          |
